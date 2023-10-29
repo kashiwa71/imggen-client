@@ -1,0 +1,10 @@
+<p>prompt works!</p>
+
+<p>{{prompt}}</p>
+
+<mat-form-field>
+    <mat-label>prompt</mat-label>
+    <input matInput [(ngModel)]="enterdPrompt" placeholder="title">
+</mat-form-field>
+
+<button class="button" mat-raised-button color="accent" (click)="getPost()">Update Title</button>
