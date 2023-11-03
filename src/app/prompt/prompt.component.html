@@ -1,10 +1,12 @@
-<p>prompt works!</p>
+<p>なんとかGPT</p>
 
-<p>{{prompt}}</p>
 
 <mat-form-field>
     <mat-label>prompt</mat-label>
-    <input matInput [(ngModel)]="enterdPrompt" placeholder="title">
+    <textarea  matInput [(ngModel)]="enterdPrompt" placeholder="入力してください"></textarea>
 </mat-form-field>
 
-<button class="button" mat-raised-button color="accent" (click)="getPost()">Update Title</button>
+<button class="button" mat-raised-button color="accent" (click)="onAddPost()">imgen</button>
+<button class="button" mat-raised-button color="accent" (click)="callGPT()">gpt</button>
+
+<p>{{response}}</p>
