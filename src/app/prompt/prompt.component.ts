@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import OpenAI from 'openai';
+import { ResponseService } from '../response.service';
+
 
 @Component({
   selector: 'app-prompt',
@@ -12,8 +13,13 @@ export class PromptComponent {
   enterdPrompt = '';
   response = '';
 
-  constructor( private http: HttpClient) { }
+  isLoading$ = this.responseService.isLoading.asObservable();
+
+  constructor(
+    private http: HttpClient,
+    private responseService: ResponseService) { }
   
+    
   getPost(){
     this.http.get<{message:string}>('http://localhost:3000/')
     .subscribe(posts => {
@@ -33,11 +39,7 @@ export class PromptComponent {
   }
   
   callGPT(){
-    // post submitted prompt to server and get response
-    this.http.post<{role:string, content:string}>('http://localhost:3000/gpt', {prompt: this.enterdPrompt})
-    .subscribe(response => {
-      console.log(response);
-      this.response = response.content;
-    })
+    this.responseService.callGPT(this.enterdPrompt);
   }
+
 }

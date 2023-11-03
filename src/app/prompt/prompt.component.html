@@ -9,4 +9,6 @@
 <button class="button" mat-raised-button color="accent" (click)="onAddPost()">imgen</button>
 <button class="button" mat-raised-button color="accent" (click)="callGPT()">gpt</button>
 
+<mat-spinner [diameter]="50" mode="indeterminate" *ngIf="isLoading$ | async"></mat-spinner>
+
 <p>{{response}}</p>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ResponseService } from '../response.service';
+import { ApiResponse } from '../response.model';
 
 @Component({
   selector: 'app-responsetile',
@@ -7,10 +9,17 @@ import { Component } from '@angular/core';
 })
 export class ResponsetileComponent {
 
-  result = [
-    { title: 'Title 1', description: 'Description 1' },
-    { title: 'Title 2', description: 'Description 2' },
-    { title: 'Title 3', description: 'Description 3' },
-  ]
+  result: ApiResponse[] = []
+  
+  constructor(private responseService: ResponseService) { } // 依存性注入
+  
+  ngOnInit(): void {
+    this.getResponse();
+  }
+
+  getResponse() {
+    return this.responseService.getResponse()
+      .subscribe( result => this.result = result);
+  }
 
 }

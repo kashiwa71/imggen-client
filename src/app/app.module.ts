@@ -18,13 +18,17 @@ import { PromptComponent } from './prompt/prompt.component';
 import { HeaderComponent } from './header/header.component';
 import { ResponsetileComponent } from './responsetile/responsetile.component';
 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { ReversePipe } from './reverse.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PromptComponent,
     HeaderComponent,
-    ResponsetileComponent
+    ResponsetileComponent,
+    ReversePipe
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,7 @@ import { ResponsetileComponent } from './responsetile/responsetile.component';
     MatButtonModule,
     MatToolbarModule,
     HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
