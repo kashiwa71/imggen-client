@@ -9,7 +9,7 @@
     <textarea  matInput [(ngModel)]="enterdPrompt" placeholder="入力してください"></textarea>
 </mat-form-field>
 
-<button class="button" mat-raised-button color="accent" (click)="onAddPost()">imgen</button> 
+<button class="button" mat-raised-button color="accent" (click)="callImggen()">imgen</button> 
 <button class="button" mat-raised-button color="accent" (click)="callGPT()">gpt</button>
 
 <mat-spinner [diameter]="50" mode="indeterminate" *ngIf="isLoading$ | async"></mat-spinner>

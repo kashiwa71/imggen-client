@@ -2,15 +2,21 @@
 <mat-card *ngFor="let res of result | reverse">
     <mat-card-header>{{res.date}}</mat-card-header>
     <mat-card-content>
-    <div *ngIf="res.imgsrc!==null">
-        <img src={{res.imgsrc}} />
-    </div>
-
+    
     <h3>プロンプト</h3>
     <p>{{res.prompt}}</p>
 
     <h3>応答</h3>
-    <p>{{res.response}}</p>
+    <div *ngIf="res.imgsrc===null">
+        <p>{{res.response}}</p>
+    </div> 
+    <div *ngIf="res.imgsrc!==null">
+        <div *ngFor="let img of res.imgsrc">
+            <p>{{img}}</p>
+            <img [src]="img" />
+        </div>
+    </div>
+
     </mat-card-content>
 
     <mat-card-actions>

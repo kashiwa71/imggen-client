@@ -1,6 +1,6 @@
 export interface ApiResponse {
     date: Date;
     prompt: string;
-    response: string;
-    imgsrc: string | null;
+    response: string | null;
+    imgsrc: string[] | null;
 }

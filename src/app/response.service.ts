@@ -24,7 +24,7 @@ export class ResponseService {
    * @param enterdPrompt - The prompt entered by the user.
    * @returns void
    */
-  callGPT(enterdPrompt: string){
+  requestGPT(enterdPrompt: string){
     this.isLoading.next(true);
     // post submitted prompt to server and get response
     this.http.post<{role:string, content:string}>('http://localhost:3000/gpt', {prompt: enterdPrompt})
@@ -42,6 +42,25 @@ export class ResponseService {
 
       })
   }
+
+  requestImggen(enterdPrompt: string){
+    this.isLoading.next(true);
+    // post submitted prompt to server and get response
+    this.http.post<any>('http://localhost:3000/imgen/links-only/' + enterdPrompt, {})
+      .subscribe(response => {
+        this.isLoading.next(false);
+        console.log(response);
+        
+        this.result.push({
+          date: new Date(),
+          prompt: enterdPrompt,
+          response: null,
+          imgsrc: response
+        });
+
+      })
+  }
+
 
   getResponse(): Observable<ApiResponse[]> {
     const reslts = of(this.result); // of() returns an Observable<ApiResponse[]>
