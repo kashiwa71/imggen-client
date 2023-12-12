@@ -9,3 +9,14 @@ main{
     background-color: #f3f3f3;
     box-shadow: 0 0 10px #e7e7e7;
 }
+
+mat-sidenav-content{
+    height: 100vh;
+
+}
+
+mat-sidenav {
+    /* background-color:#ffffff00;
+    color: white; */
+    width: 210px;
+  }

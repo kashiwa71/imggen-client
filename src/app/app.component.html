@@ -1,10 +1,23 @@
 <app-header></app-header>
-<main>
-    <div>
-        <app-prompt></app-prompt>
-    </div>
+
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened color="primary">
+        <app-sidemenu></app-sidemenu>
+    </mat-sidenav>
+
     
-    <div>
-        <app-responsetile></app-responsetile>
-    </div>
-</main>
+    <mat-sidenav-content>
+
+        <main>
+            <div>
+                <app-prompt></app-prompt>
+            </div>
+            
+            <div>
+                <app-responsetile></app-responsetile>
+            </div>
+        </main>
+    
+    </mat-sidenav-content>
+</mat-sidenav-container>
+

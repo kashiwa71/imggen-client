@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ApiResponse } from './response.model';
+import { ApiResponse, ConversationHistory } from './response.model';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,6 +17,8 @@ export class ResponseService {
     // { date: new Date(), prompt: 'prompt3', response: 'response', imgsrc: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Nyan-cat.gif"},
   ]
   
+  conversationList: ConversationHistory[] = [];
+
   isLoading = new BehaviorSubject<boolean>(false);
 
   /**
@@ -61,10 +63,12 @@ export class ResponseService {
       })
   }
 
-
   getResponse(): Observable<ApiResponse[]> {
     const reslts = of(this.result); // of() returns an Observable<ApiResponse[]>
     return reslts;
   }
 
+  getConvresationHistry(): Observable<any> {
+    return this.http.get<{id:number, started_at:string}[]>('http://localhost:3000/coversation_history')
+  }
 }

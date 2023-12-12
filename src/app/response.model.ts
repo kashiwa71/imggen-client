@@ -4,3 +4,9 @@ export interface ApiResponse {
     response: string | null;
     imgsrc: string[] | null;
 }
+
+
+export interface ConversationHistory {
+    id: number;
+    started_at: string;
+}

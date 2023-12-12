@@ -18,8 +18,13 @@ import { PromptComponent } from './prompt/prompt.component';
 import { HeaderComponent } from './header/header.component';
 import { ResponsetileComponent } from './responsetile/responsetile.component';
 
+
+import {MatListModule} from '@angular/material/list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 import { ReversePipe } from './reverse.pipe';
+import { SidemenuComponent } from './sidemenu/sidemenu.component';
 
 
 @NgModule({
@@ -28,7 +33,8 @@ import { ReversePipe } from './reverse.pipe';
     PromptComponent,
     HeaderComponent,
     ResponsetileComponent,
-    ReversePipe
+    ReversePipe,
+    SidemenuComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,9 @@ import { ReversePipe } from './reverse.pipe';
     MatButtonModule,
     MatToolbarModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
