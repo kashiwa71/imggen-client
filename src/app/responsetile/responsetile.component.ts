@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ResponseService } from '../response.service';
 import { ApiResponse } from '../response.model';
+import { ConversationLog } from '../response.model';
 
 @Component({
   selector: 'app-responsetile',
@@ -10,11 +11,21 @@ import { ApiResponse } from '../response.model';
 export class ResponsetileComponent {
 
   result: ApiResponse[] = []
-  
-  constructor(private responseService: ResponseService) { } // 依存性注入
+  conversation: ConversationLog[] = [];
+
+  constructor(
+    private responseService: ResponseService,
+  ){} // 依存性注入
   
   ngOnInit(): void {
     this.getResponse();
+
+    this.responseService.selectedConversationId.subscribe( id => {
+      this.responseService.getConvresationLog(id).subscribe( coversation => {
+        this.conversation = coversation;
+        console.log(this.conversation)
+      })
+    })
   }
 
   getResponse() {

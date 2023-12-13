@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ResponseService } from '../response.service';
 import { ConversationHistory } from '../response.model';
-import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 
 @Component({
@@ -12,12 +12,10 @@ import { HttpClient } from '@angular/common/http';
 export class SidemenuComponent implements OnInit {
   
   conversationList :ConversationHistory[] = [];
+  selectedConversationId = new BehaviorSubject<number>(0);
 
-  constructor(private responseService: ResponseService,private http: HttpClient) {
-
-
-    
-  }
+  constructor(
+    private responseService: ResponseService) {}
 
   ngOnInit(){
     this.responseService.getConvresationHistry()
@@ -28,6 +26,7 @@ export class SidemenuComponent implements OnInit {
      );  
   }
 
-
-  
+  selectConversation(id: number){
+    this.responseService.selectConversation(id);
+  }  
 }

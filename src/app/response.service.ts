@@ -21,6 +21,9 @@ export class ResponseService {
 
   isLoading = new BehaviorSubject<boolean>(false);
 
+  selectedConversationId = new BehaviorSubject<number>(0);
+
+
   /**
    * Calls the GPT API with the entered prompt and updates the result array with the response.
    * @param enterdPrompt - The prompt entered by the user.
@@ -71,4 +74,13 @@ export class ResponseService {
   getConvresationHistry(): Observable<any> {
     return this.http.get<{id:number, started_at:string}[]>('http://localhost:3000/coversation_history')
   }
+
+  getConvresationLog(conversationId:number): Observable<any> {
+    return this.http.get<{id:number, started_at:string}[]>('http://localhost:3000/coversation_log/', {params: {conversation_id: conversationId.toString()}})
+  }
+
+  selectConversation(id: number) {
+    this.selectedConversationId.next(id);
+  }
+
 }
