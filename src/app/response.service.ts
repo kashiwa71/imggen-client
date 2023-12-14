@@ -39,7 +39,7 @@ export class ResponseService {
         
         //ロールは捨てる
         this.result.push({
-          date: new Date(),
+          created_at: new Date(),
           prompt: enterdPrompt,
           response: response.content,
           imgsrc: null
@@ -57,7 +57,7 @@ export class ResponseService {
         console.log(response);
         
         this.result.push({
-          date: new Date(),
+          created_at: new Date(),
           prompt: enterdPrompt,
           response: null,
           imgsrc: response

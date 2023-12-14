@@ -11,7 +11,6 @@ import { ConversationLog } from '../response.model';
 export class ResponsetileComponent {
 
   result: ApiResponse[] = []
-  conversation: ConversationLog[] = [];
 
   constructor(
     private responseService: ResponseService,
@@ -21,9 +20,19 @@ export class ResponsetileComponent {
     this.getResponse();
 
     this.responseService.selectedConversationId.subscribe( id => {
-      this.responseService.getConvresationLog(id).subscribe( coversation => {
-        this.conversation = coversation;
-        console.log(this.conversation)
+      this.responseService.getConvresationLog(id).subscribe( res => {
+        // this.result = result;
+        
+        res.forEach( (item:ApiResponse, index:number) => {
+          this.result.push({
+            created_at: new Date(item.created_at),
+            prompt: item.prompt,
+            response: item.response,
+            imgsrc: item.imgsrc ? item.imgsrc.toString().split(',') : null
+          })
+        })
+        console.log(this.result)
+
       })
     })
   }
