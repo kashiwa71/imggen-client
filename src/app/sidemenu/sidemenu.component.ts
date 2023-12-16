@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ResponseService } from '../response.service';
-import { ConversationHistory } from '../response.model';
+import { ResponseService } from '../shared/response.service';
+import { ConversationHistory } from '../shared/response.model';
 import { BehaviorSubject } from 'rxjs';
 
 
