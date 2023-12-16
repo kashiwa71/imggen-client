@@ -23,7 +23,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSidenavModule} from '@angular/material/sidenav';
 
-import { ReversePipe } from './reverse.pipe';
+import { ReversePipe } from './shared/reverse.pipe';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
 
 

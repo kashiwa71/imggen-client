@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ResponseService } from '../response.service';
-import { ApiResponse } from '../response.model';
-import { ConversationLog } from '../response.model';
+import { ResponseService } from '../shared/response.service';
+import { ApiResponse } from '../shared/response.model';
+import { ConversationLog } from '../shared/response.model';
 
 @Component({
   selector: 'app-responsetile',
